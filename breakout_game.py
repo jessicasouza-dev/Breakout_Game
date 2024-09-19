@@ -9,16 +9,15 @@ import screen as scrn_module
 import ball as ball_module
 import os
 
-#traduzir depois/ corrigindo problemas por diretório caso o jogo seja aberto por pastas exteriores:
+#fix directory pathing issue if needed
+#se em algum momento for necessário usar um asset salvo como arquivo, e o diretório
+#principal não for a pasta "breakout_game", podem ocorrer problemas, isso conserta
 folder_path = os.path.dirname(__file__)
 os.chdir(folder_path)
 
 screen = scrn_module.screen
 
 pygame.init()
-
-# rgb color value tuples
-
 
 # main loop
 game_loop = True
@@ -38,7 +37,8 @@ while game_loop == True:
 
     plyr_module.move()
 
-    ball_module.bounce_if_needed()
+    ball_module.try_bounce()
+    ball_module.try_angle()
     ball_module.move()
     
     pygame.display.flip()

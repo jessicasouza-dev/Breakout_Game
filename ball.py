@@ -35,7 +35,8 @@ def move():
     pygame.draw.rect(screen, ball_current_color, ball)
 
 # check for conditions that cause the ball to bounce, then bounce
-def bounce_if_needed():
+#se tiver alguma condição nova que faz a bola quicar, adiciona ela aqui
+def try_bounce():
     global ball_speed_y
     global ball_speed_x
     if (((ball.colliderect(plyr_module.player) == True) and (ball_speed_y > 0))
@@ -53,5 +54,14 @@ def bounce_if_needed():
 
 #ball color changing to specified color under certain conditions
 def new_ball_color(new_color):
-      global ball_current_color
-      ball_current_color = new_color
+    global ball_current_color
+    ball_current_color = new_color
+
+def try_angle():
+    global ball_speed_x
+    global ball_speed_y
+    if ball.colliderect(plyr_module.player):
+        if ball.centerx >= plyr_module.player.centerx:
+            ball_speed_x = abs(ball_speed_y)
+        else:
+            ball_speed_x = abs(ball_speed_y) * -1
