@@ -34,8 +34,10 @@ while game_loop == True:
     scrn_module.edges()
     
     
-    lifes_module.inicial_life()
-    score_module.inicial_score()
+
+    score_module.show_score()
+    lifes_module.lose_life()
+    lifes_module.show_life()
     
     # exiting game through the window's X button
     for event in pygame.event.get():
