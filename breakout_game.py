@@ -29,6 +29,25 @@ while game_loop == True:
 
     screen.fill(scrn_module.COLOR_BLACK)
     
+    #White Edge
+    pygame.draw.rect(screen, (255,255,255), (0, 0, 720, 720), 10)
+    
+    #Bricks Edge Left Side
+    pygame.draw.rect(screen,(252, 0, 0) , (0, 150, 10, 36), 10)
+    pygame.draw.rect(screen,(252, 165, 0) , (0, 186, 10, 36), 10)
+    pygame.draw.rect(screen, (0, 252, 0), (0, 222, 10, 36), 10)
+    pygame.draw.rect(screen, (252, 252, 0), (0, 258, 10, 36), 10)
+    
+    #Bricks Edge Right Side
+    pygame.draw.rect(screen,(252, 0, 0) , (710, 150, 10, 36), 10)
+    pygame.draw.rect(screen,(252, 165, 0) , (710, 186, 10, 36), 10)
+    pygame.draw.rect(screen, (0, 252, 0), (710, 222, 10, 36), 10)
+    pygame.draw.rect(screen, (252, 252, 0), (710, 258, 10, 36), 10)
+    
+    #Players Edge left and right side
+    pygame.draw.rect(screen, (100, 100, 252), (0,580 , 10, 36), 10)
+    pygame.draw.rect(screen, (100, 100, 252), (710, 580, 10, 36), 10)
+    
     # exiting game through the window's X button
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
