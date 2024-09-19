@@ -30,7 +30,8 @@ while game_loop == True:
     screen.fill(scrn_module.COLOR_BLACK)
     
     #White Edge
-    pygame.draw.rect(screen, (255,255,255), (0, 0, 720, 720), 10)
+    pygame.draw.rect(screen, (255,255,255), (0, 0, 10, 720), 10)
+    pygame.draw.rect(screen, (255,255,255), (710, 0, 720, 720), 10)
     
     #Bricks Edge Left Side
     pygame.draw.rect(screen,(252, 0, 0) , (0, 150, 10, 36), 10)
