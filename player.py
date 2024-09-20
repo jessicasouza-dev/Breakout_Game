@@ -17,7 +17,7 @@ def move():
 
     #quando tivermos um valor específico de onde é o limite de distância que o jogador alcança, mudar LEFT_BORDER e RIGHT_BORDER
     #por enquanto deixei as bordas da tela como limite
-    
+
     if (mouse_x - (player.width/2) < scrn_module.leftlimit):
         player.midleft = (0, player.centery)
     elif (mouse_x + (player.width/2) > scrn_module.rightlimit):
@@ -26,3 +26,11 @@ def move():
         player.center = (mouse_x, player.centery)
     
     pygame.draw.rect(screen, scrn_module.COLOR_BLUE, player)
+
+def get_hit_area(ball = pygame.rect.Rect):
+    if ball.centerx <= player.left + ((player.right - player.left) / 3):
+        return 0
+    elif ball.centerx >= player.left + (2 * ((player.right - player.left) / 3)):
+        return 2
+    else:
+        return 1

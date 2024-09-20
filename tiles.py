@@ -54,18 +54,18 @@ class Wall:
                 brick_y = (i * (BRICK_HEIGHT + GAP)) + self.y
                 if i >= 0 and i < 2:
                     brick_color = COLOR_RED
-                    brick_bounces = 4
-                    brick_points = 4
+                    brick_bounces = 1
+                    brick_points = 7
                     brick_speed = 4
                 elif i >= 2 and i < 4:
                     brick_color = COLOR_ORANGE
-                    brick_bounces = 3
-                    brick_points = 3
+                    brick_bounces = 1
+                    brick_points = 5
                     brick_speed = 3
                 elif i >= 4 and i < 6:
                     brick_color = COLOR_GREEN
-                    brick_bounces = 2
-                    brick_points = 2
+                    brick_bounces = 1
+                    brick_points = 3
                     brick_speed = 2
                 else:
                     brick_color = COLOR_YELLOW

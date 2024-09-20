@@ -1,4 +1,3 @@
-#coloquem os seus nomes aqui
 #Isabela Braga Dutra Buleje 
 #João Pedro Telles Paes 2415310011
 #Jessica Rodrigues de Souza
@@ -53,7 +52,6 @@ while game_loop == True:
     plyr_module.move()
 
     ball_module.try_bounce()
-    ball_module.try_angle()
     ball_module.collide_brick(wall)
     ball_module.move()
 
