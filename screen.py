@@ -1,4 +1,7 @@
 import pygame
+import self
+
+import tiles
 
 COLOR_BLACK = (0, 0, 0)
 COLOR_WHITE = (252, 252, 252)
@@ -14,6 +17,8 @@ pygame.display.set_caption('breakout')
 
 background = pygame.Surface(screen.get_size())
 background = background.convert()
+
+
 
 leftlimit = 0
 rightlimit = 720

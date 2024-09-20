@@ -4,7 +4,7 @@ import screen as scrn_module
 piscando = True 
 tempo_ultimo_blink = 0  
 intervalo_blink = 500
-score = '000'
+score = 0
 
 def show_score():
     global piscando, tempo_ultimo_blink, score 
