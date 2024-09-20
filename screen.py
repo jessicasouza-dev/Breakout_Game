@@ -18,7 +18,6 @@ background = pygame.Surface(screen.get_size())
 background = background.convert()
 
 
-
 leftlimit = 0
 rightlimit = 720
 toplimit = 0

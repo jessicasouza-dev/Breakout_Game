@@ -36,7 +36,7 @@ wall = tiles.Wall(ROWS, COLS, screen, 10, 155)
 while game_loop == True:
 
     screen.fill(scrn_module.COLOR_BLACK)
-
+    
     scrn_module.edges()
     wall.draw()
     score_module.show_score()
@@ -50,7 +50,7 @@ while game_loop == True:
             pygame.quit()
 
     plyr_module.move()
-
+    
     ball_module.try_bounce()
     ball_module.collide_brick(wall)
     ball_module.move()

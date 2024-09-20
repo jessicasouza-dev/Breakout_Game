@@ -20,6 +20,11 @@ ball.center = (ball_starting_x, ball_starting_y)
 
 ball_current_color = (252, 252, 252)
 
+pygame.mixer.init()
+ball_hitting_block = pygame.mixer.Sound('assets/Ball hit Block.wav')
+ball_hitting_paddle = pygame.mixer.Sound('assets/Ball hit Paddle.wav')
+ball_hitting_wall = pygame.mixer.Sound('assets/Ball hit Wall.wav')
+
 screen = scrn_module.screen
 
 isActive = True
@@ -54,16 +59,19 @@ def try_bounce():
     if ((ball.top <= scrn_module.toplimit) and (ball_speed_y < 0)):
             ball_speed_y *= -1
             isActive = True
+            ball_hitting_wall.play()
     #ball collides with left of screen
     if (ball.right >= scrn_module.rightlimit
         or ball.left <= scrn_module.leftlimit):
             ball_speed_x *= -1
+            ball_hitting_wall.play()
 
     #ball trajectory change if it does collide with player
     if ((ball.colliderect(plyr_module.player) == True)
         and (ball_speed_y > 0)):
             ball_speed_y *= -1
             isActive = True
+            ball_hitting_paddle.play()
             if plyr_module.get_hit_area(ball) == 0:
                 ball_angle = 0
             if plyr_module.get_hit_area(ball) == 1:
@@ -103,6 +111,7 @@ def collide_brick(wall):
         for brick in row:
             if ball.colliderect(brick.rect):
                 if isActive == True:
+                    ball_hitting_block.play()
                     isActive = False
                     ball_speed_y *= -1
 
