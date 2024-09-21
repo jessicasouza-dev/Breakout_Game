@@ -1,7 +1,5 @@
 import pygame
 
-import tiles
-
 COLOR_BLACK = (0, 0, 0)
 COLOR_WHITE = (252, 252, 252)
 COLOR_GREEN = (0, 252, 0)

@@ -19,9 +19,10 @@ def show_life():
     scrn_module.screen.blit(life_text, life_text_rect)
     scrn_module.screen.blit(number_text, number_text_rect)
     
-def lose_life():
+def lose_life(wall):
     global life
     if ball_module.ball.bottom >= scrn_module.bottomlimit:
         ball_module.ball_spawn()
-        life -=1
+        life -= 1
+        wall.colors.clear()
    

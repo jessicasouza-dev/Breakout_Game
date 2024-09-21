@@ -1,4 +1,5 @@
 import pygame
+import screen as scrn_module
 
 COLOR_BLACK = (0, 0, 0)
 COLOR_WHITE = (252, 252, 252)
@@ -8,12 +9,13 @@ COLOR_ORANGE = (252, 165, 0)
 COLOR_RED = (252, 0, 0)
 COLOR_BLUE = (100, 100, 252)
 
-BRICK_WIDTH = 720/14
+BRICK_WIDTH = 720 / 14
 BRICK_HEIGHT = 10
 
 COLS = 14
 
 GAP = 8
+
 
 class Tile:
     def __init__(self, x, y, color, points, speed, surface, bounces):
@@ -46,6 +48,7 @@ class Wall:
         self.x = x
         self.y = y
         self.create_wall()
+
     def create_wall(self):
         for i in range(self.rows):
             block_row = []
@@ -74,11 +77,17 @@ class Wall:
                     brick_speed = 1
                 brick_surface = self.surface
 
-                block_row.append(Tile(brick_x, brick_y, brick_color, brick_points, brick_speed, brick_surface, brick_bounces))
+                block_row.append(
+                    Tile(brick_x, brick_y, brick_color, brick_points, brick_speed, brick_surface, brick_bounces))
 
                 # self.tiles.append(Tile(brick_x, brick_y, brick_color, brick_points, brick_speed, brick_surface))
             self.tiles.append(block_row)
+
     def draw(self):
         for tile in self.tiles:
             for brick in tile:
                 brick.drawBrick()
+
+    def redraw(self):
+        self.tiles.clear()
+        self.create_wall()

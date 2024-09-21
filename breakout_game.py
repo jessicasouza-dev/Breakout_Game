@@ -33,14 +33,15 @@ ball_module.ball_spawn()
 
 wall = tiles.Wall(ROWS, COLS, screen, 10, 155)
 
+isRound = False
+
 while game_loop == True:
 
     screen.fill(scrn_module.COLOR_BLACK)
-    
     scrn_module.edges()
     wall.draw()
     score_module.show_score()
-    lifes_module.lose_life()
+    lifes_module.lose_life(wall)
     lifes_module.show_life()
 
     # exiting game through the window's X button
@@ -48,13 +49,34 @@ while game_loop == True:
         if event.type == pygame.QUIT:
             game_loop = False
             pygame.quit()
+        if event.type == pygame.KEYDOWN and isRound == False:
+            isRound = True
+            lifes_module.life = 3
+            score_module.score = 0
+            wall.redraw()
+            ball_module.ball_respawn()
 
-    plyr_module.move()
-    
-    ball_module.try_bounce()
-    ball_module.collide_brick(wall)
-    ball_module.move()
+    if lifes_module.life > 0 and isRound:
+        plyr_module.player.width = plyr_module.PLAYER_BASE_WIDTH
+        plyr_module.move()
 
-    pygame.display.flip()
+        ball_module.try_bounce()
+        ball_module.collide_brick(wall, isRound)
+        ball_module.move()
 
-    pygame.time.Clock().tick(60)
+        pygame.display.flip()
+
+        pygame.time.Clock().tick(60)
+
+    elif isRound == False or lifes_module.life <= 0:
+        isRound = False
+        plyr_module.player.width = scrn_module.screen_size[0]
+        plyr_module.move()
+
+        ball_module.try_bounce()
+        ball_module.collide_brick(wall, isRound)
+        ball_module.move()
+
+        pygame.display.flip()
+
+        pygame.time.Clock().tick(60)
