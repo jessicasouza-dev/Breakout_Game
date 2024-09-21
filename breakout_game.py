@@ -63,7 +63,8 @@ while game_loop == True:
         ball_module.try_bounce()
         ball_module.collide_brick(wall, isRound)
         ball_module.move()
-
+        ball_module.new_ball_color()
+        
         pygame.display.flip()
 
         pygame.time.Clock().tick(60)

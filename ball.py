@@ -2,11 +2,12 @@ import pygame
 import screen as scrn_module
 import player as plyr_module
 import score as scr_module
+import random
 
 BALL_SPAWN_XSPEED = 0
 BALL_SPAWN_YSPEED = 5
 
-ball_starting_x = 350
+ball_starting_x = random.randint(120,400)
 ball_starting_y = 400
 
 ball_speed_x = 0
@@ -34,19 +35,27 @@ ball_angle = 0
 def ball_spawn():
     global ball_speed_x
     global ball_speed_y
+    global ball_starting_x
+    global ball_starting_y
+    ball_starting_x = random.randint(100,600)
     ball.centerx = ball_starting_x
     ball.centery = ball_starting_y
     pygame.draw.rect(screen, ball_current_color, ball)
-    ball_speed_x = BALL_SPAWN_XSPEED
+    if ball_starting_x < 360:
+        ball_speed_x = 1
+    if ball_starting_x > 360:
+        ball_speed_x = -1
     ball_speed_y = BALL_SPAWN_YSPEED
+    
+
 
 
 def ball_respawn():
     ball.centerx = 0
     ball.centery = 0
     pygame.draw.rect(screen, ball_current_color, pygame.Rect(0, 0, 0, 0))
-    ball_speed_x = 0
-    ball_speed_y = 0
+    '''ball_speed_x = 0
+    ball_speed_y = 0'''
 
     ball_spawn()
 
@@ -114,9 +123,22 @@ def angle_calibrate():
 
 
 #ball color changing to specified color under certain conditions
-def new_ball_color(new_color):
+def new_ball_color():
     global ball_current_color
-    ball_current_color = new_color
+    if 294 > ball.y >= 258:
+        ball_current_color = scrn_module.COLOR_YELLOW
+    elif 258 > ball.y >= 222:
+        ball_current_color = scrn_module.COLOR_GREEN
+    elif 222 > ball.y >= 186:
+        ball_current_color = scrn_module.COLOR_ORANGE
+    elif 186 > ball.y >= 150:
+        ball_current_color = scrn_module.COLOR_RED
+    elif 640 > ball.y >= 628:
+        ball_current_color = scrn_module.COLOR_BLUE
+    else:
+        ball_current_color = (252, 252, 252)  # Cor padrão (branco)
+    pygame.draw.rect(screen, ball_current_color, ball)
+
 
 
 def collide_brick(wall, isRound):

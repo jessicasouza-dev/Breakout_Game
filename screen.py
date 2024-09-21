@@ -2,11 +2,11 @@ import pygame
 
 COLOR_BLACK = (0, 0, 0)
 COLOR_WHITE = (252, 252, 252)
-COLOR_GREEN = (0, 252, 0)
+COLOR_GREEN = (35, 142, 35)
 COLOR_YELLOW = (252, 252, 0)
 COLOR_ORANGE = (252, 165, 0)
 COLOR_RED = (252, 0, 0)
-COLOR_BLUE = (100, 100, 252)
+COLOR_BLUE = (50, 153, 204)
 
 screen_size = 720, 720
 screen = pygame.display.set_mode(screen_size)
@@ -39,5 +39,5 @@ def edges():
     pygame.draw.rect(screen, (COLOR_YELLOW), (710, 258, 10, 36), 10)
     
     #Players Edge left and right side
-    pygame.draw.rect(screen,COLOR_BLUE, (0,580 , 10, 36), 10)
-    pygame.draw.rect(screen,COLOR_BLUE, (710, 580, 10, 36), 10)
+    pygame.draw.rect(screen,COLOR_BLUE, (0,640 , 10, 36), 10)
+    pygame.draw.rect(screen,COLOR_BLUE, (710, 640, 10, 36), 10)

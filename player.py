@@ -3,7 +3,7 @@ import screen as scrn_module
 
 #criando tipo tudo
 X_STARTING_POINT = 350
-Y_STARTING_POINT = 600
+Y_STARTING_POINT = 660
 PLAYER_BASE_WIDTH = 36
 PLAYER_BASE_HEIGHT = 16
 
