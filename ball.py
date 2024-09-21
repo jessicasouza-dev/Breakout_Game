@@ -37,7 +37,7 @@ def ball_spawn():
     global ball_speed_y
     global ball_starting_x
     global ball_starting_y
-    ball_starting_x = random.randint(100,600)
+    ball_starting_x = random.randint((0 + (scrn_module.screen.get_width()/5)), (scrn_module.screen.get_width()/5) * 4)
     ball.centerx = ball_starting_x
     ball.centery = ball_starting_y
     pygame.draw.rect(screen, ball_current_color, ball)
@@ -46,9 +46,6 @@ def ball_spawn():
     if ball_starting_x > 360:
         ball_speed_x = -1
     ball_speed_y = BALL_SPAWN_YSPEED
-    
-
-
 
 def ball_respawn():
     ball.centerx = 0
@@ -58,7 +55,6 @@ def ball_respawn():
     ball_speed_y = 0'''
 
     ball_spawn()
-
 
 # main funtion to move the ball every frame
 def move():
