@@ -28,6 +28,6 @@ def show_score():
     second_number_font = pygame.font.Font("assets/breakout.ttf", 44)
     second_number_text = second_number_font.render('000', True, scrn_module.COLOR_WHITE,scrn_module.COLOR_BLACK)
     second_number_text_rect = second_number_text.get_rect()
-    second_number_text_rect.center = (510, 100)
+    second_number_text_rect.center = (scrn_module.screen.get_width() - 210, 100)
     
     scrn_module.screen.blit(second_number_text, second_number_text_rect)

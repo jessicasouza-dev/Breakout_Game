@@ -9,12 +9,12 @@ COLOR_ORANGE = (252, 165, 0)
 COLOR_RED = (252, 0, 0)
 COLOR_BLUE = (50, 153, 204)
 
-BRICK_WIDTH = 720 / 14
-BRICK_HEIGHT = 10
+BRICK_WIDTH = (scrn_module.screen.get_width() - scrn_module.leftlimit) / 16
+BRICK_HEIGHT = 12
 
 COLS = 14
 
-GAP = 8
+GAP = BRICK_WIDTH / 7
 
 
 class Tile:

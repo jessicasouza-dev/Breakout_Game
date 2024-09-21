@@ -9,7 +9,7 @@ def show_life():
     life_font = pygame.font.Font("assets/breakout.ttf", 44)
     life_text = life_font.render(str(life), True, scrn_module.COLOR_WHITE,scrn_module.COLOR_BLACK)
     life_text_rect = life_text.get_rect()
-    life_text_rect.center = (465,25)
+    life_text_rect.center = (scrn_module.screen.get_width() - 255, 25)
     
     number_font = pygame.font.Font("assets/breakout.ttf", 44)
     number_text = number_font.render('3', True, scrn_module.COLOR_WHITE,scrn_module.COLOR_BLACK)

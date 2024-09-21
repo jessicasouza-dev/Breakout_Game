@@ -72,7 +72,7 @@ def move():
 
 
 # check for conditions that cause the ball to bounce, then bounce
-def try_bounce():
+def try_bounce(do_angle):
     global ball_speed_y
     global ball_speed_x
     global isActive
@@ -82,29 +82,30 @@ def try_bounce():
         ball_speed_y *= -1
         isActive = True
         ball_hitting_wall.play()
-    #ball collides with left of screen
-    if (ball.right >= scrn_module.rightlimit
-            or ball.left <= scrn_module.leftlimit):
+    #ball collides with edge of screen
+    if ((ball.right >= scrn_module.rightlimit and ball_speed_x > 0)
+            or (ball.left <= scrn_module.leftlimit and ball_speed_x < 0)):
         ball_speed_x *= -1
         ball_hitting_wall.play()
 
     #ball trajectory change if it does collide with player
     if ((ball.colliderect(plyr_module.player) == True)
-            and (ball_speed_y > 0)):
+        and (ball_speed_y > 0)):
         ball_speed_y *= -1
-        isActive = True
-        ball_hitting_paddle.play()
-        if plyr_module.get_hit_area(ball) == 0:
-            ball_angle = 0
-        if plyr_module.get_hit_area(ball) == 1:
-            if ball_speed_x < 0:
-                ball_angle = 1
-            else:
-                ball_angle = 2
-        if plyr_module.get_hit_area(ball) == 2:
-            ball_angle = 3
+        if do_angle == True:
+            isActive = True
+            ball_hitting_paddle.play()
+            if plyr_module.get_hit_area(ball) == 0:
+                ball_angle = 0
+            if plyr_module.get_hit_area(ball) == 1:
+                if ball_speed_x < 0:
+                    ball_angle = 1
+                else:
+                    ball_angle = 2
+            if plyr_module.get_hit_area(ball) == 2:
+                ball_angle = 3
 
-        angle_calibrate()
+            angle_calibrate()
 
 
 def angle_calibrate():
@@ -113,13 +114,13 @@ def angle_calibrate():
     global ball_angle
 
     if ball_angle == 0:
-        ball_speed_x = abs(ball_speed_y) * -1
+        ball_speed_x = (ball_speed_y)
     elif ball_angle == 1:
-        ball_speed_x = (abs(ball_speed_y) * (2 / 3)) * -1
+        ball_speed_x = ((ball_speed_y) * (2 / 3))
     elif ball_angle == 2:
-        ball_speed_x = (abs(ball_speed_y) * (2 / 3))
+        ball_speed_x = ((ball_speed_y) * (2 / 3)) * -1
     elif ball_angle == 3:
-        ball_speed_x = abs(ball_speed_y)
+        ball_speed_x = (ball_speed_y) * -1
 
 
 #ball color changing to specified color under certain conditions
@@ -169,3 +170,5 @@ def collide_brick(wall, isRound):
                             ball_speed_y += brick.speed
                             print(wall.colors)
                             angle_calibrate()
+                    if isRound == False:
+                        isActive = True

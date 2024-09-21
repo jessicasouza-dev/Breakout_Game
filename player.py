@@ -10,13 +10,12 @@ PLAYER_BASE_HEIGHT = 16
 player = pygame.Rect(X_STARTING_POINT, Y_STARTING_POINT, PLAYER_BASE_WIDTH, PLAYER_BASE_HEIGHT)
 player.center = (X_STARTING_POINT, Y_STARTING_POINT)
 screen = scrn_module.screen
+mouse_x = 0
 
 def move():
     global player
+    global mouse_x
     mouse_x = pygame.mouse.get_pos()[0]
-
-    #quando tivermos um valor específico de onde é o limite de distância que o jogador alcança, mudar LEFT_BORDER e RIGHT_BORDER
-    #por enquanto deixei as bordas da tela como limite
 
     if (mouse_x - (player.width/2) < scrn_module.leftlimit):
         player.midleft = (0, player.centery)

@@ -31,7 +31,7 @@ game_loop = True
 ball = ball_module.ball
 ball_module.ball_spawn()
 
-wall = tiles.Wall(ROWS, COLS, screen, 10, 155)
+wall = tiles.Wall(ROWS, COLS, screen, scrn_module.leftlimit, 155)
 
 isRound = False
 
@@ -60,7 +60,7 @@ while game_loop == True:
         plyr_module.player.width = plyr_module.PLAYER_BASE_WIDTH
         plyr_module.move()
 
-        ball_module.try_bounce()
+        ball_module.try_bounce(isRound)
         ball_module.collide_brick(wall, isRound)
         ball_module.move()
         ball_module.new_ball_color()
@@ -74,10 +74,10 @@ while game_loop == True:
         plyr_module.player.width = scrn_module.screen_size[0]
         plyr_module.move()
 
-        ball_module.try_bounce()
+        ball_module.try_bounce(isRound)
         ball_module.collide_brick(wall, isRound)
         ball_module.move()
-
+        
         pygame.display.flip()
 
         pygame.time.Clock().tick(60)
