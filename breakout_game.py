@@ -36,7 +36,6 @@ wall = tiles.Wall(ROWS, COLS, screen, scrn_module.leftlimit, 155)
 isRound = False
 
 while game_loop == True:
-
     screen.fill(scrn_module.COLOR_BLACK)
     scrn_module.edges()
     wall.draw()
@@ -57,7 +56,6 @@ while game_loop == True:
             ball_module.ball_respawn()
 
     if lifes_module.life > 0 and isRound:
-        plyr_module.player.width = plyr_module.PLAYER_BASE_WIDTH
         plyr_module.move()
 
         ball_module.try_bounce(isRound)

@@ -47,6 +47,8 @@ def ball_spawn():
         ball_speed_x = -1
     ball_speed_y = BALL_SPAWN_YSPEED
 
+    plyr_module.resize(plyr_module.PLAYER_BASE_WIDTH)
+
 def ball_respawn():
     ball.centerx = 0
     ball.centery = 0
@@ -77,6 +79,7 @@ def try_bounce(do_angle):
     if ((ball.top <= scrn_module.toplimit) and (ball_speed_y < 0)):
         ball_speed_y *= -1
         isActive = True
+        plyr_module.resize((plyr_module.PLAYER_BASE_WIDTH / 2))
         ball_hitting_wall.play()
     #ball collides with edge of screen
     if ((ball.right >= scrn_module.rightlimit and ball_speed_x > 0)
