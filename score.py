@@ -18,14 +18,14 @@ def show_score():
 
     if piscando:
     #Tem que trocar a fonte
-        score_font = pygame.font.Font("assets/breakout.ttf", 44)
+        score_font = pygame.font.Font("assets/pong-score.ttf", 44)
         score_text = score_font.render(formatted_score, True, scrn_module.COLOR_WHITE,scrn_module.COLOR_BLACK)
         score_text_rect = score_text.get_rect()
         score_text_rect.center = (125, 100)
     
         scrn_module.screen.blit(score_text, score_text_rect)
         
-    second_number_font = pygame.font.Font("assets/breakout.ttf", 44)
+    second_number_font = pygame.font.Font("assets/pong-score.ttf", 44)
     second_number_text = second_number_font.render('000', True, scrn_module.COLOR_WHITE,scrn_module.COLOR_BLACK)
     second_number_text_rect = second_number_text.get_rect()
     second_number_text_rect.center = (scrn_module.screen.get_width() - 210, 100)

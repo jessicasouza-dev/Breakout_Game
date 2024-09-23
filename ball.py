@@ -91,8 +91,8 @@ def try_bounce(do_angle):
     if ((ball.colliderect(plyr_module.player) == True)
         and (ball_speed_y > 0)):
         ball_speed_y *= -1
+        isActive = True
         if do_angle == True:
-            isActive = True
             ball_hitting_paddle.play()
             if plyr_module.get_hit_area(ball) == 0:
                 ball_angle = 0
@@ -169,5 +169,3 @@ def collide_brick(wall, isRound):
                             ball_speed_y += brick.speed
                             print(wall.colors)
                             angle_calibrate()
-                    if isRound == False:
-                        isActive = True

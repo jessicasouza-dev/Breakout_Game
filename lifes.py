@@ -6,12 +6,12 @@ life = 3
 
 def show_life():
     global life
-    life_font = pygame.font.Font("assets/breakout.ttf", 44)
+    life_font = pygame.font.Font("assets/pong-score.ttf", 44)
     life_text = life_font.render(str(life), True, scrn_module.COLOR_WHITE,scrn_module.COLOR_BLACK)
     life_text_rect = life_text.get_rect()
     life_text_rect.center = (scrn_module.screen.get_width() - 255, 25)
     
-    number_font = pygame.font.Font("assets/breakout.ttf", 44)
+    number_font = pygame.font.Font("assets/pong-score.ttf", 44)
     number_text = number_font.render('3', True, scrn_module.COLOR_WHITE,scrn_module.COLOR_BLACK)
     number_text_rect = number_text.get_rect()
     number_text_rect.center = (80, 25)
