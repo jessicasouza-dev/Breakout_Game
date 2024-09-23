@@ -15,7 +15,6 @@ pygame.display.set_caption('breakout')
 background = pygame.Surface(screen.get_size())
 background = background.convert()
 
-
 leftlimit = 10
 rightlimit = screen.get_width() - 10
 toplimit = 0
